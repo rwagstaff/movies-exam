@@ -1,5 +1,7 @@
 package ms.user;
 
+import java.util.List;
+
 import ms.AbstractEntity;
 import ms.billing.Card;
 import ms.billing.Payer;
@@ -36,6 +38,10 @@ public class User extends AbstractEntity implements Subscribed, Payer {
     @Override
     public Card paymentDetails() {
         return profile.getCardDetails();
+    }
+
+    public List<Movie> purchasedMovies() {
+        return profile.findPurchasedMovies();
     }
 
     public String getName() {

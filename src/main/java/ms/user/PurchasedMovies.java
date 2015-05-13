@@ -24,4 +24,8 @@ public class PurchasedMovies extends AbstractEntity {
         return expired;
     }
 
+    public boolean isExpired() {
+        return expired != null && expired.before(new Date());
+    }
+
 }

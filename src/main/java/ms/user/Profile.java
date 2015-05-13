@@ -48,4 +48,15 @@ public class Profile {
         return Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
     }
 
+    public List<Movie> findPurchasedMovies() {
+        List<Movie> movies = new ArrayList<>();
+
+        for (PurchasedMovies purchasedMovies : getPurchasedMovies()) {
+            if (!purchasedMovies.isExpired()) {
+                movies.add(purchasedMovies.getMovie());
+            }
+        }
+
+        return movies;
+    }
 }
